@@ -19,31 +19,43 @@ Table 50143 TabellaScadenze
             NotBlank = TRUE;
             TableRelation = TabellaScadenze.IdTipologiaScadenza;
         }
-        Field(3; idAnagrafica; Code[20])
+        Field(3; TipoAnagrafica; Text[25])
+        {
+            DataClassification = ToBeClassified;
+        }
+        Field(4; idAnagrafica; Code[20])
         {
 
             NotBlank = TRUE;
-            TableRelation = Customer."No.";
+            TableRelation = Employee."No.";
         }
-        Field(4; Scadenza; Date)
+        Field(5; Scadenza; Date)
         {
 
         }
-        Field(5; Stato; Integer)
+        Field(6; Stato; Integer)
         {
 
 
         }
-        Field(6; TipoAnagrafica1; Code[20])
+        Field(7; TipoAnagrafica1; Option)
         {
             Caption = 'Tipo Anagrafica1';
-            //OptionCaption = ' ,Risorsa, Veicolo';
-            //OptionMembers = "",Risorsa,Veicolo;
-        }
-        field(7; Gruppo; Code[20])
-        {
-            TableRelation = TabellaTipologiaScadenzeFiltro.Valore WHERE(Tipologia1 = FIELD(TipoAnagrafica1));
 
+            OptionCaption = ' ,Risorsa, Veicolo';
+            OptionMembers = "",Risorsa,Veicolo;
+        }
+        field(8; Gruppo; Code[20])
+        {
+
+
+
+        }
+        field(9; Tipologia; Text[50])
+        {
+            DataClassification = CustomerContent;
+            NotBlank = TRUE;
+            TableRelation = TabellaTipologiaScadenze.Tipologia;
         }
     }
     Keys
